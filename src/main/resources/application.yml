@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  threads:
+    virtual:
+      enabled: true
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/your_database
+    username: your_username
+    password: your_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  security:
+    jwt:
+      secret-key: 4c071eedf337979811a68ec8f8061b06b2ac42cb609b7f161686d79d9a4f006c
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
+
